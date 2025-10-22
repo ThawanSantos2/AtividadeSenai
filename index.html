@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfólio do Fotógrafo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-white shadow p-4 sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-600">Portfólio</h1>
+            <ul class="flex space-x-6 text-lg">
+                <li><a href="#about" class="hover:text-indigo-400">Sobre</a></li>
+                <li><a href="#gallery" class="hover:text-indigo-400">Galeria</a></li>
+                <li><a href="#contact" class="hover:text-indigo-400">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="container mx-auto p-6 mt-6 bg-white rounded shadow-md max-w-4xl">
+        <h2 class="text-3xl font-semibold mb-4 text-center text-indigo-600">Sobre o Fotógrafo</h2>
+        <p class="text-center max-w-xl mx-auto mb-6">
+            Olá! Sou um fotógrafo profissional apaixonado por capturar momentos únicos e transformá-los em memórias inesquecíveis.
+            Com mais de 10 anos de experiência, trabalho com fotografia de natureza, retratos e eventos especiais.
+        </p>
+    </section>
+
+    <section id="gallery" class="container mx-auto p-6 mt-8 max-w-6xl">
+        <h2 class="text-3xl font-semibold mb-6 text-center text-indigo-600">Galeria de Fotos</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Paisagem 1" class="rounded shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal(this.src, this.alt)" />
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="Paisagem 2" class="rounded shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal(this.src, this.alt)" />
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" alt="Paisagem 3" class="rounded shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal(this.src, this.alt)" />
+            <img src="https://images.unsplash.com/photo-1425321395722-b1dd54a97cf3?auto=format&fit=crop&w=800&q=80" alt="Paisagem 4" class="rounded shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal(this.src, this.alt)" />
+            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80" alt="Paisagem 5" class="rounded shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal(this.src, this.alt)" />
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Paisagem 6" class="rounded shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer" onclick="openModal(this.src, this.alt)" />
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto p-6 mt-8 bg-white rounded shadow-md max-w-4xl">
+        <h2 class="text-3xl font-semibold mb-4 text-center text-indigo-600">Contato</h2>
+        <form class="max-w-md mx-auto" onsubmit="return sendMessage(event)">
+            <label for="name" class="block mb-2 font-semibold">Nome:</label>
+            <input type="text" id="name" name="name" required class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            <label for="email" class="block mb-2 font-semibold">Email:</label>
+            <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+            <label for="message" class="block mb-2 font-semibold">Mensagem:</label>
+            <textarea id="message" name="message" rows="4" required class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 w-full">
+                Enviar
+            </button>
+        </form>
+    </section>
+
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-4 max-w-3xl max-h-[90vh] overflow-auto">
+            <button onclick="closeModal()" class="float-right text-gray-600 hover:text-gray-900 font-bold">Fechar &times;</button>
+            <img id="modal-img" src="" alt="" class="w-full rounded mb-4" />
+            <p id="modal-caption" class="text-center text-lg font-semibold"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
